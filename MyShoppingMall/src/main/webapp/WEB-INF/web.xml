@@ -21,7 +21,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>springmv</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/public/*</url-pattern>
     </servlet-mapping>
 
     <!--EL表达式不能用的时候配置，先注释了，不行再添加-->

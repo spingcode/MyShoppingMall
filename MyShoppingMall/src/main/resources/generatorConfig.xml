@@ -28,18 +28,18 @@
 			<property name="forceBigDecimals" value="false"/>
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="kaola.com.test.userMapper"
+		<javaModelGenerator targetPackage="kaola.com.seller.entity"
 							targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="kaola.com.test.userMapper"
+		<sqlMapGenerator targetPackage="kaola.com.seller.mapper"
 						 targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 
-		<javaClientGenerator type="XMLMAPPER" targetPackage="kaola.com.test.userMapper"
+		<javaClientGenerator type="XMLMAPPER" targetPackage="kaola.com.seller.mapper"
 							 targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
@@ -51,7 +51,7 @@
                 <property name="useActualColumnNames" value="false"/>
             </table> -->
 
-		<table tableName="user" domainObjectName="User" enableCountByExample="false"
+		<table tableName="seller" domainObjectName="Seller" enableCountByExample="false"
 			   enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
 			   selectByExampleQueryId="false">
 			<property name="useActualColumnNames" value="false"/>

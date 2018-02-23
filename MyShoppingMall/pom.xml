@@ -21,7 +21,7 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.1</version>
-      <scope>test</scope>
+     <!-- <scope>test</scope>-->
     </dependency>
     <!-- servlet的jar包  添加<scope>provided</scope>，因为provided表明该包只在编译和测试的时候用-->
     <dependency>
@@ -35,7 +35,12 @@
       <artifactId>lombok</artifactId>
       <version>1.16.10</version>
     </dependency>
-
+    <!-- StringUtils -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.4</version>
+    </dependency>
     <!--引入mybatis和数据库的包  -->
     <dependency>
       <groupId>org.mybatis</groupId>
