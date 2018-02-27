@@ -22,4 +22,12 @@ public class Seller implements Serializable {
     private Date createdOn;
 
     private static final long serialVersionUID = 1L;
+
+    public Seller(String sellerAccount, String sellerPassword) {
+        this.sellerAccount = sellerAccount;
+        this.sellerPassword = sellerPassword;
+    }
+
+    public Seller() {
+    }
 }

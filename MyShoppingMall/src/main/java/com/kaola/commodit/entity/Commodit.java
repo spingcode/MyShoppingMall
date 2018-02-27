@@ -1,7 +1,9 @@
 package com.kaola.commodit.entity;
 
 import lombok.Data;
+import lombok.NonNull;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 @Data
@@ -12,8 +14,9 @@ public class Commodit implements Serializable {
 
     private String sellerId;
 
+    @NotNull
     private String title;
-
+    @NotNull
     private Float price;
 
     private String commoditImg;

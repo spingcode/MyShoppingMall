@@ -11,10 +11,10 @@
     <title>添加商品</title>
 </head>
 <body>
-        <form action="${pageContext.request.contextPath}/public/commodit/addCommodit" method="post">
+        <form action="${pageContext.request.contextPath}/public/commodit/addCommodit" method="post" enctype="multipart/form-data">
             商品名称：<input type="text" name="title"><br/>
             商品价格：<input type="text" name="price"><br/>
-            商品图片：<input type="text" name="commoditImg"><br/>
+            商品图片：<input type="file" name="file"><br/>
             商品摘要：<input type="text" name="commoditAbstract"><br/>
             商品正文：<input type="text" name="commoditText"><br/>
             商品数量：<input type="text" name="number"><br/>

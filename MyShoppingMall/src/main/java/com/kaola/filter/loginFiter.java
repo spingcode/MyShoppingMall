@@ -5,15 +5,20 @@ package com.kaola.filter;/*
  *@Modified By:
  */
 
+import com.kaola.util.PropertiesFileUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class loginFiter  implements Filter{
 
+    private static final Log logger = LogFactory.getLog(loginFiter.class);
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -24,15 +29,26 @@ public class loginFiter  implements Filter{
 
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
-        String sellerUser = (String) request.getSession().getAttribute("sellerUser");
-        String buyerUser = (String) request.getSession().getAttribute("buyerUser");
+        HttpSession session = request.getSession();
         String requestURI = request.getRequestURI();
         String contextPath = request.getContextPath();
-        System.out.println(requestURI);
-        System.out.println( requestURI.substring("/MyShoppingMall/".length()-1));
-        if (StringUtils.isEmpty( requestURI.substring("/MyShoppingMall/".length())))
+        String loginStatus = (String) session.getAttribute("loginStatus");
+        if (StringUtils.isEmpty(loginStatus))
         {
-            System.out.println("coming");
+            String sellerUser = (String)session.getAttribute("sellerUser");
+            String buyerUser = (String) session.getAttribute("buyerUser");
+            if(!StringUtils.isEmpty(sellerUser))
+                //卖家
+                session.setAttribute("loginStatus","sellerUser");
+            else if (!StringUtils.isEmpty(buyerUser))
+                //买家
+                session.setAttribute("loginStatus","buyerUser");
+            else
+                //游客
+                session.setAttribute("loginStatus","visitor");
+        }
+        if (PropertiesFileUtil.getProperty("item.contextPath").equals(requestURI))
+        {
             request.getRequestDispatcher("public/commodit/getAllCommodit").forward(request,response);
         }
         else {

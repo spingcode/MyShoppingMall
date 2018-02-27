@@ -1,4 +1,4 @@
-package com.kaola.commodit.service.imp;/*
+package com.kaola.commodit.service.impl;/*
  *@Author:zouw
  *@Description:
  *@Date:Created in 13:16 2018/2/23
@@ -42,4 +42,10 @@ public class CommoditServiceImpl implements CommoditService{
     public Commodit selectCommoditBycommoditId(String commoditId) {
         return commoditMapper.selectCommoditBycommoditId(commoditId);
     }
+
+    @Override
+    public int getTotal() {
+        return commoditMapper.getTotal();
+    }
+
 }

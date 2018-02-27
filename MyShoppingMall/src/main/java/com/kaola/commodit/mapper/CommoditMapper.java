@@ -10,4 +10,5 @@ public interface CommoditMapper {
     int deleteCommodit(String commoditId);
     List<Commodit> selectCommodit();
     Commodit selectCommoditBycommoditId(String commoditId);
+    int getTotal();
 }
